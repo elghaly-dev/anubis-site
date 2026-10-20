@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anubis by elghaly</title>
+<meta name="description" content="Anubis (Exploit-to-Evidence Gate): a GitLab Duo Agent Platform custom flow that turns a security finding into an evidence test, a minimal fix and a merge request, verified by a deterministic CI gate.">
+<style>
+  :root{--bg:#030308;--cyan:#17E7EF;--purple:#8B3DE3;--card:#0D0B1F;--text:#E8E8F0;--muted:#9A9AB0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;
+    background-image:radial-gradient(circle at 15% 10%,rgba(139,61,227,.18),transparent 45%),radial-gradient(circle at 85% 90%,rgba(23,231,239,.12),transparent 45%)}
+  main{flex:1;max-width:860px;margin:0 auto;padding:80px 24px 40px}
+  .tag{display:inline-block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(23,231,239,.35);border-radius:999px;padding:4px 14px;margin-bottom:24px}
+  h1{font-size:clamp(2.4rem,6vw,3.8rem);line-height:1.1;margin-bottom:12px}
+  h1 span{background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);font-size:1.1rem;margin-bottom:36px}
+  .lead{font-size:1.15rem;margin-bottom:28px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:36px 0}
+  .card{background:var(--card);border:1px solid rgba(139,61,227,.3);border-radius:14px;padding:22px}
+  .card h3{color:var(--cyan);font-size:1rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .quote{border-left:3px solid var(--purple);padding:6px 0 6px 18px;color:var(--text);font-style:italic;margin:28px 0}
+  .btn{display:inline-block;margin-top:12px;padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none;color:var(--bg);background:linear-gradient(90deg,var(--cyan),var(--purple));transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(23,231,239,.25)}
+  footer{text-align:center;padding:28px 24px;color:var(--muted);font-size:.9rem;border-top:1px solid rgba(255,255,255,.06)}
+  footer a{color:var(--cyan);text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+  <div class="tag">GitLab Duo Agent Platform &middot; Custom Flow</div>
+  <h1><span>Anubis</span> by elghaly</h1>
+  <p class="sub">Exploit-to-Evidence Gate</p>
+
+  <p class="lead">A GitLab Duo Agent Platform custom flow turns a security finding (GitLab issue) into an isolated pytest evidence test that fails on vulnerable code, applies a minimal fix, and opens a merge request. GitLab CI then runs a deterministic gate.</p>
+
+  <div class="cards">
+    <div class="card"><h3>Intake &rarr; MR</h3><p>The Duo custom flow parses the finding, writes an evidence test and manifest, makes a minimal fix and opens a merge request.</p></div>
+    <div class="card"><h3>Deterministic CI gate</h3><p>CI checks the test, confirms it fails on the merge-request base, checks fix scope, confirms it passes after the fix and renders an evidence report.</p></div>
+    <div class="card"><h3>Trusted inputs</h3><p>Gate code runs from the merge target branch, and scanner results come only from GitLab SAST and Secret Detection job artifacts.</p></div>
+  </div>
+
+  <p class="quote">A patch is not &ldquo;verified&rdquo; because a model wrote it; it is verified only by reproducible pytest behavior.</p>
+
+  <a class="btn" href="https://gitlab.com/Alarm2024/exploit-to-evidence-gate" target="_blank" rel="noopener">View on GitLab &rarr;</a>
+</main>
+<footer>&copy; elghaly, LLC &middot; <a href="https://elghaly.dev" target="_blank" rel="noopener">elghaly.dev</a></footer>
+</body>
+</html>
